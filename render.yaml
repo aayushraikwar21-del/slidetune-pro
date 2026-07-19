@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: slidetune-pro
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Permissions-Policy
+        value: microphone=(self)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
